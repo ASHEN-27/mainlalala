@@ -5,11 +5,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Realtime Implemetation</title>
 <script src="js/jquery-3.1.1.min.js"></script>
-<script src="js/jquery.dataTables.js"></script>
 <script src="js/bootstrap.js"></script>
 <script src="../lib/dictate.js"></script>
 <script src="../lib/recorder.js"></script>
-<script src="other/jquery-1.10.2.min.js"></script>
 <script src="demo.js"></script>
 <script src="js/actionclick.js"></script>
 
@@ -31,8 +29,8 @@
 			<li role="presentation" class="active"><a href="#home"
 				style="color: #FFA500;" aria-controls="home" role="tab"
 				data-toggle="tab"><h3>Home</h3></a></li>
-			<li role="presentation"><a style="color: #FFA500;" href="#name"
-				aria-controls="name" role="tab" data-toggle="tab"><h3>Name</h3></a></li>
+			<li role="presentation"><a style="color: #FFA500;" href="#suprise"
+				aria-controls="suprise" role="tab" data-toggle="tab" id = "sup"><h3>SUPRISE</h3></a></li>
 			<li role="presentation"><a style="color: #FFA500;"
 				href="#background" aria-controls="background" role="tab"
 				data-toggle="tab"><h3>Show The Background</h3></a></li>
@@ -46,46 +44,63 @@
 		</script>
 		<div class="tab-content">
 			<div role="tabpanel" class="tab-pane active" id="home"
-				style="color: #FFA500;"><h2>Start your speech</h2>
+				style="color: #FFA500;">
+				<h2>Start your speech</h2>
 				<div style="text-align:left;"><a href="#" class="btn btn-info btn-lg" id="actclick">Start</a></div>
 				</div>
 
-			<div role="tabpanel" class="tab-pane" id="name"
-				style="color: #FFA500;"><h2>Your name is AIDEN!</h2></div>
+			<div role="tabpanel" class="tab-pane" id="suprise"
+				style="color: #FFA500;"><h2>SUPRISE!</h2>
+				<img src="pic/111.png"  alt="yooooooooo" />
+				</div>
 
 			<div role="tabpanel" class="tab-pane" id="background"; ">
-				<span id="serverStatusBar " title="Number of available workers "></span>
+				
+				
+<span id="serverStatusBar" title="Number of available workers"></span>
 
-				<div class="controls ">
-					<button class="btn btn-success" id="buttonStart " onclick="startListening(); "
-						title="Starts listening for speech, i.e. starts recording and transcribing. ">Start</button>
-						&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-					<button class="btn btn-danger" id="buttonStop " onclick="stopListening(); "
-						title="Stops listening for speech. Speech captured so far will be recognized as if the user had stopped speaking at this
-			 point. Note that in the default case, this does not need to be called, as the speech endpointer will automatically stop
-			 the recognizer listening when it determines speech has completed. ">Stop</button>
+<div class="controls">
+<button class="btn btn-success"
+	id="buttonStart"
+	onclick="startListening();"
+	title="Starts listening for speech, i.e. starts recording and transcribing.">Start</button>
+	&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+<button class="btn btn-danger"
+	id="buttonStop"
+	onclick="stopListening();"
+	title="Stops listening for speech. Speech captured so far will be recognized as if the user had stopped speaking at this point. Note that in the default case, this does not need to be called, as the speech endpointer will automatically stop the recognizer listening when it determines speech has completed.">Stop</button>
+	&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+<button class="btn btn-info"
+	id="buttonClear"
+	onclick="clearTranscription();"
+	title="Clear the transcription.">Clear</button>
+</div>
 
-				</div>
-
-				<textarea rows="8 " cols="80 " id="trans ">
+<textarea rows="8" cols="80" id="trans">
 </textarea>
 
-				<div id="statusBar "></div>
 
-				<hr />
+<div id="statusBar "></div>
 
-				<div class="controls ">
-					<button class="btn btn-success" onclick="init(); "
-						title="Request access to the microphone ">initialize</button>
-					&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-					<button class="btn btn-info" onclick="showConfig(); "
-						title="Show the configuration of the Dictate object ">Config</button>
-					&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-					<button class="btn btn-primary" onclick="clearLog(); " title="Clear the log ">Clear
-						log</button>
-				</div>
-				<pre id="log ">
-			</pre>
+
+<div class="controls">
+<button class="btn btn-success"
+	onclick="init();"
+	title="Request access to the microphone">Init</button>
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+<button class="btn btn-info"
+	onclick="showConfig();"
+	title="Show the configuration of the Dictate object">Config</button>
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+<button class="btn btn-primary"
+	onclick="clearLog();"
+	title="Clear the log">Clear log</button>
+</div>
+
+<pre id="log">
+</pre>
+
+				
 			</div>
 		</div>
 	</div>

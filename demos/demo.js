@@ -38,7 +38,9 @@ var dictate = new Dictate({
 			// TODO: demo the case where there are more hypos
 			tt.add(hypos[0].transcript, false);
 			__updateTranscript(tt.toString());
+			
 		},
+
 		onResults : function(hypos) {
 			// TODO: demo the case where there are more results
 			tt.add(hypos[0].transcript, true);
@@ -47,6 +49,7 @@ var dictate = new Dictate({
 			if (typeof(diff) == "function") {
 				diff();
 			}
+			
 		},
 		onError : function(code, data) {
 			__error(code, data);
